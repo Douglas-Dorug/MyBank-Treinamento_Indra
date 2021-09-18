@@ -30,7 +30,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableWebMvc
 @PropertySource(value = "classpath:application.yml")
-@ComponentScan(basePackages = {"io.swagger", "io.swagger.api", "io.swagger.co	nfiguration", "com.indracompany.treinamento"})
+@ComponentScan(basePackages = {"io.swagger", "io.swagger.api", "io.swagger.configuration", "com.indracompany.treinamento"})
 @ServletComponentScan
 public class AppConfig {
 

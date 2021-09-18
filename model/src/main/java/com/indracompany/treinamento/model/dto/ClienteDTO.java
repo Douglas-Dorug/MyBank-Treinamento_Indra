@@ -13,9 +13,5 @@ public class ClienteDTO {
 	
 	private String cpf;
 	
-	private String email;
-	
-	
-	private boolean ativo;
 
 }

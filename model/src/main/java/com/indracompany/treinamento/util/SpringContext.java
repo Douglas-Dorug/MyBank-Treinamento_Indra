@@ -1,4 +1,4 @@
-package com.indracompany.treinamento;
+package com.indracompany.treinamento.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
