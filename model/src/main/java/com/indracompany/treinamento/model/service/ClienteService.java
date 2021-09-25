@@ -3,6 +3,7 @@ package com.indracompany.treinamento.model.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.indracompany.treinamento.exception.AplicacaoException;
@@ -39,7 +40,7 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 	
 	public List<ClienteDTO> buscarClientePorNome(String nome) {
 		
-		List<Cliente> clientes = repository.findByNome(nome.toUpperCase());
+		List<Cliente> clientes = repository.findByNomeIgnoreCaseLike("%"+nome+"%");
 		
 		if (clientes == null || clientes.isEmpty()) {
 			throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUM_REGISTRO_ENCONTRADO);
@@ -49,10 +50,10 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 		
 		for(Cliente cliente : clientes) {
 			ClienteDTO cli = new ClienteDTO();
-			
-			cli.setCpf(cliente.getCpf());
-			cli.setNome(cliente.getNome());
-			cli.setId(cliente.getId());
+			BeanUtils.copyProperties(cliente, cli);
+			//cli.setCpf(cliente.getCpf());
+			//cli.setNome(cliente.getNome());
+			//cli.setId(cliente.getId());
 			
 			listaClientes.add(cli);
 		}

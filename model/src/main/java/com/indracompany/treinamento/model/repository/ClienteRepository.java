@@ -11,7 +11,6 @@ public interface ClienteRepository extends GenericCrudRepository<Cliente, Long>{
 	Cliente findByCpf(String cpf);
 
 	
-	@Query(value = "SELECT * FROM `clientes` WHERE UPPER(nome) LIKE ?1%", nativeQuery = true)
-	List<Cliente> findByNome(String nome);
+	List<Cliente> findByNomeIgnoreCaseLike(String nome);
 
 }
