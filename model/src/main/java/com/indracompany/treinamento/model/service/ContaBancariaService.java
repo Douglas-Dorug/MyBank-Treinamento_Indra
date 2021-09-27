@@ -1,5 +1,6 @@
 package com.indracompany.treinamento.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.indracompany.treinamento.exception.AplicacaoException;
 import com.indracompany.treinamento.exception.ExceptionValidacoes;
 import com.indracompany.treinamento.model.dto.ClienteDTO;
-import com.indracompany.treinamento.model.dto.DepositoDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
 import com.indracompany.treinamento.model.entity.Cliente;
@@ -21,6 +21,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	
 	@Autowired
 	private ClienteService clienteService;
+	
+	@Autowired
+	private OperacaoContaService operacaoContaService;
 	
 	@Autowired
 	private ContaBancariaRepository contaBancariaRepository;
@@ -50,13 +53,18 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		return contasDoCliente;
 	}
 	
-	public void depositar(String agencia, String numeroConta, double valor) {
+	public void depositar(String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
+		if(tipoOperacao.equals("Depositar")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Depósito recebido", 'C');
+		} else if (tipoOperacao.equals("Transferir")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Transferencia recebida", 'C');
+		}
 	}
 	
-	public void sacar(String agencia, String numeroConta, double valor) {
+	public void sacar(String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		
 		if (conta.getSaldo()<valor) {
@@ -65,6 +73,11 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
+		if(tipoOperacao.equals("Sacar")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Saque efetuado", 'D');
+		} else if (tipoOperacao.equals("Transferir")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Transferencia realizada", 'D');
+		}
 	}
 
 	@Transactional(rollbackOn = Exception.class)
@@ -73,9 +86,8 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 				&& dto.getNumeroContaOrigem().equals(dto.getAgenciaDestino())) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_INVALIDA);
 		}
-		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor());
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor());
-		
+		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(), "Transferir");
+		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(), "Transferir");
 	}
 	
 	
