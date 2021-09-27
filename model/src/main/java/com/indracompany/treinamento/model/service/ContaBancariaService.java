@@ -53,18 +53,18 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		return contasDoCliente;
 	}
 	
-	public void depositar(String agencia, String numeroConta, double valor, String tipoOperacao) {
+	public void depositar(String nomeContaRecebimento,String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
-		if(tipoOperacao.equals("Depositar")) {
+		if(tipoOperacao.equals("DEPOSITAR")) {
 			operacaoContaService.salvarOperacao(conta, valor, "Depósito recebido", 'C');
-		} else if (tipoOperacao.equals("Transferir")) {
-			operacaoContaService.salvarOperacao(conta, valor, "Transferencia recebida", 'C');
+		} else if (tipoOperacao.equals("TRANSFERIR")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Transferencia recebida de " + nomeContaRecebimento, 'C');
 		}
 	}
 	
-	public void sacar(String agencia, String numeroConta, double valor, String tipoOperacao) {
+	public void sacar(String nomeContaDestino, String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		
 		if (conta.getSaldo()<valor) {
@@ -73,21 +73,25 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		
 		conta.setSaldo(conta.getSaldo() - valor);
 		super.salvar(conta);
-		if(tipoOperacao.equals("Sacar")) {
+		if(tipoOperacao.equals("SACAR")) {
 			operacaoContaService.salvarOperacao(conta, valor, "Saque efetuado", 'D');
-		} else if (tipoOperacao.equals("Transferir")) {
-			operacaoContaService.salvarOperacao(conta, valor, "Transferencia realizada", 'D');
+		} else if (tipoOperacao.equals("TRANSFERIR")) {
+			operacaoContaService.salvarOperacao(conta, valor, "Transferencia realizada para " + nomeContaDestino, 'D');
 		}
 	}
 
 	@Transactional(rollbackOn = Exception.class)
 	public void transferir(TransferenciaBancariaDTO dto) {
+		ContaBancaria contaOrigem = consultarConta(dto.getAgenciaOrigem(),dto.getNumeroContaOrigem());
+		ContaBancaria contaDestino = consultarConta(dto.getAgenciaDestino(),dto.getNumeroContaDestino());
+		String clienteOrigem = contaOrigem.getCliente().getNome();
+		String clienteDestino = contaDestino.getCliente().getNome();
 		if (dto.getAgenciaOrigem().equals(dto.getAgenciaDestino())
 				&& dto.getNumeroContaOrigem().equals(dto.getAgenciaDestino())) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_CONTA_INVALIDA);
 		}
-		this.sacar(dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(), "Transferir");
-		this.depositar(dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(), "Transferir");
+		this.sacar(clienteDestino,dto.getAgenciaOrigem(), dto.getNumeroContaOrigem(), dto.getValor(), "TRANSFERIR");
+		this.depositar(clienteOrigem,dto.getAgenciaDestino(), dto.getNumeroContaDestino(), dto.getValor(), "TRANSFERIR");
 	}
 	
 	
