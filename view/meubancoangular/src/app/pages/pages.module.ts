@@ -5,13 +5,15 @@ import { CadatroEdicaoClientesComponent } from './clientes/cadatro-edicao-client
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
+import { ListagemContasComponent } from './contas/listagem-contas/listagem-contas.component';
 
 
 
 @NgModule({
   declarations: [
     ListagemClientesComponent,
-    CadatroEdicaoClientesComponent
+    CadatroEdicaoClientesComponent,
+    ListagemContasComponent
   ],
   imports: [
     CommonModule,

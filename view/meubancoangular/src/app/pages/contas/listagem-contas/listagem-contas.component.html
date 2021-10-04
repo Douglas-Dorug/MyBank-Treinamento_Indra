@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6"><i class="fas fa-address-card"></i>Listagem de Contas</h1>
+      <hr>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Agencia</th>
+            <th scope="col">Numero da Conta</th>
+            <th scope="col">Saldo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contas of contas">
+            <th>{{contas.id}}</th>
+            <td>{{contas.agencia}}</td>
+            <td>{{contas.numero}}</td>
+            <td>R$: {{contas.saldo}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
+
