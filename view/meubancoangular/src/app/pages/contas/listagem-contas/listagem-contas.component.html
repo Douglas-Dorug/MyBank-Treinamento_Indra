@@ -7,6 +7,7 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
+            <th scope="col">Cliente</th>
             <th scope="col">Agencia</th>
             <th scope="col">Numero da Conta</th>
             <th scope="col">Saldo</th>
@@ -15,6 +16,7 @@
         <tbody>
           <tr *ngFor="let contas of contas">
             <th>{{contas.id}}</th>
+            <th>{{contas.cliente.nome}}</th>
             <td>{{contas.agencia}}</td>
             <td>{{contas.numero}}</td>
             <td>R$: {{contas.saldo}}</td>
