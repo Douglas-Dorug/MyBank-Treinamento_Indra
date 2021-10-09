@@ -1,43 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class="display-6"><i class="fas fa-address-card"></i>Formulario de cadastro de clientes</h1>
+      <h1 class="display-6"><i class="fas fa-address-card"></i> {{ formValue.get('id')?.value ? 'Edição': 'Cadastro'}} de Cliente</h1>
       <hr>
+      <form [formGroup]="formValue" (ngSubmit)="enviar()">
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" formControlName="nome">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">E-mail</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">CPF</label>
+          <input type="text" class="form-control" formControlName="cpf">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Observações</label>
+          <textarea class="form-control" cols="30" rows="3" formControlName="observacoes"></textarea>
+        </div>
+        <a routerLink='/clientes' class="btn btn-danger me-md-2">Voltar</a>
+        <button [disabled]="!formValue.valid" type="submit" class="btn btn-primary ">Enviar</button>
+      </form>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="form-floating mb-3">
-        <input type="name" class="form-control" id="floatingInput" placeholder="Douglas Luiz">
-        <label for="floatingInput">Nome</label>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Endereço de email</label>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-floating mb-3">
-        <input type="cpf" class="form-control" id="floatingInput" placeholder="01020304050609">
-        <label for="floatingInput">CPF</label>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-floating">
-        <input type="string" class="form-control" id="floatingInput" placeholder="observacoes">
-        <label for="floatingTextarea">Observações</label>
-      </div>
-    </div>
-  </div>
-  <div class="d-grid gap-2 d-md-block">
-    <a class="btn btn-primary me-md-2" >Cadastrar</a>
-    <a class="btn btn-danger" routerLink="/clientes">Cancelar</a>
   </div>
 </div>
 

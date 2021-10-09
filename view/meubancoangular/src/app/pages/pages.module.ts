@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListagemClientesComponent } from './clientes/listagem-clientes/listagem-clientes.component';
 import { CadatroEdicaoClientesComponent } from './clientes/cadatro-edicao-clientes/cadatro-edicao-clientes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { ListagemContasComponent } from './contas/listagem-contas/listagem-contas.component';
@@ -19,7 +19,8 @@ import { ListagemContasComponent } from './contas/listagem-contas/listagem-conta
     CommonModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

@@ -15,6 +15,9 @@ const routes: Routes = [
     path: 'clientes/cadastrar', component: CadatroEdicaoClientesComponent
   },
   {
+    path: 'clientes/editar/:id', component: CadatroEdicaoClientesComponent
+  },
+  {
     path: 'contas', component: ListagemContasComponent
   }
 ];
