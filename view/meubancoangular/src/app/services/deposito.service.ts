@@ -12,7 +12,7 @@ export class DepositoService {
 
   constructor(private http: HttpClient) { }
 
-  sacar(deposito: ISaqueDeposito){
+  depositar(deposito: ISaqueDeposito){
     return this.http.post(`${this.api}/${this.endpoint}/`, deposito);
   }
 }
