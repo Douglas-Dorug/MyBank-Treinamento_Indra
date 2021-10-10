@@ -20,7 +20,7 @@
             <th>{{contas.cliente.nome}}</th>
             <td>{{contas.agencia}}</td>
             <td>{{contas.numero}}</td>
-            <td>R$: {{contas.saldo}}</td>
+            <td>{{contas.saldo | currency:'BRL'}}</td>
             <td>
               <a class="btn btn-primary btn-sm mx-1">Depositar</a>
               <a class="btn btn-danger btn-sm mx-1">Sacar</a>

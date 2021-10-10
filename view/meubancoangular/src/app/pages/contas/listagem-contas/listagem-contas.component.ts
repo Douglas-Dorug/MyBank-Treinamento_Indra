@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IContas } from 'src/app/interfaces/contas';
 import { ContasService } from 'src/app/services/contas.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ContasService } from 'src/app/services/contas.service';
 })
 export class ListagemContasComponent implements OnInit {
 
-  contas: any[] = [];
+  contas: IContas[] = [];
   constructor(private contasService: ContasService) { }
 
   ngOnInit(): void {

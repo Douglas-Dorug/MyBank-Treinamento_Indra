@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { ListagemContasComponent } from './contas/listagem-contas/listagem-contas.component';
+import { SaqueComponent } from './caixa-eletronico/saque/saque.component';
+import { DepositoComponent } from './caixa-eletronico/deposito/deposito.component';
+import { TransferenciaComponent } from './caixa-eletronico/transferencia/transferencia.component';
 
 
 
@@ -13,7 +16,10 @@ import { ListagemContasComponent } from './contas/listagem-contas/listagem-conta
   declarations: [
     ListagemClientesComponent,
     CadatroEdicaoClientesComponent,
-    ListagemContasComponent
+    ListagemContasComponent,
+    SaqueComponent,
+    DepositoComponent,
+    TransferenciaComponent,
   ],
   imports: [
     CommonModule,

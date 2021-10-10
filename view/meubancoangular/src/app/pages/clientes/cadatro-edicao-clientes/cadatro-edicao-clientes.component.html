@@ -20,6 +20,10 @@
           <label class="form-label">Observações</label>
           <textarea class="form-control" cols="30" rows="3" formControlName="observacoes"></textarea>
         </div>
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
+          <label class="form-label mx-1" >Ativo</label>
+          <input type="checkbox" formControlName="ativo">
+        </div>
         <a routerLink='/clientes' class="btn btn-danger me-md-2">Voltar</a>
         <button [disabled]="!formValue.valid" type="submit" class="btn btn-primary ">Enviar</button>
       </form>

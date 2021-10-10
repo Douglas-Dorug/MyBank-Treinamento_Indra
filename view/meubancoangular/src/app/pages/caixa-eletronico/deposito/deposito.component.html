@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6"><i class="fas fa-comment-dollar text-success"></i> Caixa Eletrônico - Depósito</h1>
+      <hr>
+      <form [formGroup]="formValue">
+        <div class="mb-3">
+          <label class="form-label">Agência</label>
+          <input formValuetype="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Número da Conta</label>
+          <input formValuetype="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Valor</label>
+          <input formValuetype="text" class="form-control">
+        </div>
+        <a routerLink='/clientes' class="btn btn-primary">Voltar</a>
+        <button type="submit" class="btn btn-success mx-1">Depositar</button>
+      </form>
+    </div>
+  </div>
+</div>
