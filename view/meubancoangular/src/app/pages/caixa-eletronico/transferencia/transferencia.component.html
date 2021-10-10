@@ -1,32 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class="display-6"><i class="fas fa-comment-dollar text-success"></i> Caixa Eletrônico - Saque</h1>
+      <h1 class="display-6"><i class="fas fa-comments-dollar text-success"></i> Caixa Eletrônico - Transferencia</h1>
       <hr>
-      <form>
+      <form [formGroup]="formValue" (ngSubmit)="transferir()">
         <div class="mb-3">
           <label class="form-label">Agência da conta origem</label>
-          <input formValuetype="text" class="form-control">
+          <input formValuetype="text" class="form-control" formControlName="agenciaOrigem">
         </div>
         <div class="mb-3">
           <label class="form-label">Número da Conta origem</label>
-          <input formValuetype="text" class="form-control">
+          <input formValuetype="text" class="form-control" formControlName="numeroContaOrigem">
         </div>
         <div class="mb-3">
           <label class="form-label">Agência da conta destino</label>
-          <input formValuetype="text" class="form-control">
+          <input formValuetype="text" class="form-control" formControlName="agenciaDestino">
         </div>
         <div class="mb-3">
           <label class="form-label">Número da Conta destino</label>
-          <input formValuetype="text" class="form-control">
+          <input formValuetype="text" class="form-control" formControlName="numeroContaDestino">
         </div>
         <div class="mb-3">
           <label class="form-label">Valor</label>
-          <input formValuetype="text" class="form-control">
+          <input formValuetype="text" class="form-control" formControlName="valor">
         </div>
-        <a routerLink='/clientes' class="btn btn-primary">Cancelar</a>
-        <button type="submit" class="btn btn-success mx-1">Transferir</button>
+        <a routerLink='/contas' class="btn btn-primary">Cancelar</a>
+        <button [disabled]="!formValue.valid" type="submit" class="btn btn-success mx-1">Transferir</button>
       </form>
     </div>
   </div>
 </div>
+

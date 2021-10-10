@@ -1,7 +1,7 @@
 export interface ITransferencia {
-  angenciaOrigem: string;
-  angenciaDestino: string;
-  numeroOrigem: string;
-  numeroDestino: string;
+  agenciaOrigem: string;
+  agenciaDestino: string;
+  numeroContaOrigem: string;
+  numeroContaDestino: string;
   valor: number;
 }
