@@ -27,7 +27,13 @@ const routes: Routes = [
     path: 'ATM/deposito', component: DepositoComponent
   },
   {
+    path: 'contas/ATM/deposito/:id', component: DepositoComponent
+  },
+  {
     path: 'ATM/saque', component: SaqueComponent
+  },
+  {
+    path: 'contas/ATM/saque/:id', component: SaqueComponent
   },
   {
     path: 'ATM/transferencia', component: TransferenciaComponent

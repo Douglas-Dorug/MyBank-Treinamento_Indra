@@ -4,17 +4,31 @@
       <h1 class="display-6"><i class="fas fa-comment-dollar text-danger"></i> Caixa Eletrônico - Saque</h1>
       <hr>
       <form [formGroup]="formValue" (ngSubmit)="sacar()">
-        <div class="mb-3">
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
           <label class="form-label">Agência</label>
-          <input formValuetype="text" class="form-control" formControlName="agencia">
+          <input type="text" class="form-control" placeholder="0000" formControlName="agencia">
+          <div class="form-text">
+            Por favor digite os 4 números da agencia.
+          </div>
         </div>
-        <div class="mb-3">
+        <div *ngIf="formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Agência</label>
+          <input type="text" class="form-control" formControlName="agencia" readonly>
+        </div>
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
           <label class="form-label">Número da Conta</label>
-          <input formValuetype="text" class="form-control" formControlName="numeroConta">
+          <input type="text" class="form-control" placeholder="000000" formControlName="numeroConta">
+          <div class="form-text">
+            Por favor digite os 6 numeros de sua conta.
+          </div>
+        </div>
+        <div *ngIf="formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Número da Conta</label>
+          <input type="text" class="form-control" formControlName="numeroConta" readonly>
         </div>
         <div class="mb-3">
           <label class="form-label">Valor</label>
-          <input formValuetype="text" class="form-control" formControlName="valor">
+          <input type="text" class="form-control" formControlName="valor">
         </div>
         <a routerLink='/contas' class="btn btn-primary">Voltar</a>
         <button [disabled]="!formValue.valid" type="submit" class="btn btn-danger mx-1">Sacar</button>

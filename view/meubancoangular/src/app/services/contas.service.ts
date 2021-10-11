@@ -15,4 +15,8 @@ export class ContasService {
   listarTodasContas(){
     return this.http.get<IContas[]>(`${this.api}/${this.endpoint}`);
   }
+
+  buscarPorId(id: number){
+    return this.http.get<IContas>(`${this.api}/${this.endpoint}/${id}`);
+  }
 }

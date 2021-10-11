@@ -11,7 +11,7 @@
             <th scope="col">Agencia</th>
             <th scope="col">Numero da Conta</th>
             <th scope="col">Saldo</th>
-            <th scope="col">Operação</th>
+            <th scope="col">Operações</th>
           </tr>
         </thead>
         <tbody>
@@ -22,8 +22,9 @@
             <td>{{contas.numero}}</td>
             <td>{{contas.saldo | currency:'BRL'}}</td>
             <td>
-              <a class="btn btn-primary btn-sm mx-1">Depositar</a>
-              <a class="btn btn-danger btn-sm mx-1">Sacar</a>
+              <a [routerLink]="['ATM/deposito', contas.id]" class="btn btn-primary btn-sm mx-1">Depositar</a>
+              <a [routerLink]="['ATM/saque', contas.id]" class="btn btn-danger btn-sm mx-1">Sacar</a>
+              <a class="btn btn-warning btn-sm mx-1">Extrato</a>
             </td>
           </tr>
         </tbody>

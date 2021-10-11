@@ -1,5 +1,5 @@
 export interface ISaqueDeposito {
-  angencia: string;
+  agencia: string;
   numeroConta: string;
   valor: number;
 

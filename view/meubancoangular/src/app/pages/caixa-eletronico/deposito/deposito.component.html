@@ -4,13 +4,27 @@
       <h1 class="display-6"><i class="fas fa-comment-dollar text-success"></i> Caixa Eletrônico - Depósito</h1>
       <hr>
       <form [formGroup]="formValue" (ngSubmit)="depositar()">
-        <div class="mb-3">
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
           <label class="form-label">Agência</label>
-          <input formValuetype="text" class="form-control" formControlName="agencia">
+          <input formValuetype="text" class="form-control" placeholder="0000" formControlName="agencia">
+          <div class="form-text">
+            Por favor digite os 4 números da agencia da conta que deseja depositar.
+          </div>
         </div>
-        <div class="mb-3">
+        <div *ngIf="formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Agência</label>
+          <input formValuetype="text" class="form-control" formControlName="agencia" readonly>
+        </div>
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
           <label class="form-label">Número da Conta</label>
-          <input formValuetype="text" class="form-control" formControlName="numeroConta">
+          <input formValuetype="text" class="form-control" placeholder="000000" formControlName="numeroConta">
+          <div class="form-text">
+            Por favor digite os 6 números da conta que deseja depositar.
+          </div>
+        </div>
+        <div *ngIf="formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Número da Conta</label>
+          <input formValuetype="text" class="form-control" formControlName="numeroConta" readonly>
         </div>
         <div class="mb-3">
           <label class="form-label">Valor</label>
