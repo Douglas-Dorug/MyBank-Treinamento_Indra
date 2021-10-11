@@ -24,7 +24,7 @@
             <td>
               <a [routerLink]="['ATM/deposito', contas.id]" class="btn btn-primary btn-sm mx-1">Depositar</a>
               <a [routerLink]="['ATM/saque', contas.id]" class="btn btn-danger btn-sm mx-1">Sacar</a>
-              <a class="btn btn-warning btn-sm mx-1">Extrato</a>
+              <a [routerLink]="['extrato/', contas.agencia,contas.numero]"class="btn btn-warning btn-sm mx-1">Extrato</a>
             </td>
           </tr>
         </tbody>
