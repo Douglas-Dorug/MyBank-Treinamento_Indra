@@ -7,7 +7,7 @@ import com.indracompany.treinamento.model.entity.OperacaoConta;
 
 public interface OperacaoContaRepository extends GenericCrudRepository<OperacaoConta, Long> {
 	
-	List<OperacaoConta> findByConta(ContaBancaria conta);
+	List<OperacaoConta> findByContaOrderByDataHoraDesc(ContaBancaria conta);
 	
 	
 }

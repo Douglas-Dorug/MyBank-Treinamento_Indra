@@ -26,7 +26,7 @@ public class OperacaoContaService extends GenericCrudService<OperacaoConta, Long
 
 	public List<OperacaoContaDTO> obterOperacoes(String agencia, String numeroConta){
 		ContaBancaria conta = contaBancariaService.consultarConta(agencia, numeroConta);
-		List<OperacaoConta> operacoes = operacaoContaRepository.findByConta(conta);
+		List<OperacaoConta> operacoes = operacaoContaRepository.findByContaOrderByDataHoraDesc(conta);
 		if(operacoes == null || operacoes.isEmpty()) {
 			throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUM_REGISTRO_ENCONTRADO);
 		}
