@@ -47,6 +47,11 @@ export class SaqueComponent implements OnInit {
 
   sacar(){
     const saque: ISaqueDeposito = this.formValue.value;
+    Swal.fire({
+      title: 'Processando saque...',
+      didOpen: () => {
+        Swal.showLoading()
+    }});
     this.saqueService.sacar(saque).subscribe(result => {
       Swal.fire('Sucesso!','Saque efetuado com successo!','success')
       this.router.navigate(['/contas']);

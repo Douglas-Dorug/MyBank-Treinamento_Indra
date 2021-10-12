@@ -47,6 +47,11 @@ export class DepositoComponent implements OnInit {
 
   depositar(){
     const deposito: ISaqueDeposito = this.formValue.value;
+    Swal.fire({
+      title: 'Processando depósito...',
+      didOpen: () => {
+        Swal.showLoading()
+    }});
     this.depositoService.depositar(deposito).subscribe(result => {
       Swal.fire('Sucesso!','Depósito efetuado com successo!','success')
       this.router.navigate(['/contas']);
