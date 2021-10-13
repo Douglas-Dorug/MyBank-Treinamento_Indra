@@ -53,6 +53,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		return contasDoCliente;
 	}
 	
+	@Transactional(rollbackOn = Exception.class)
 	public void depositar(String nomeContaRecebimento,String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		conta.setSaldo(conta.getSaldo() + valor);
@@ -64,6 +65,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		}
 	}
 	
+	@Transactional(rollbackOn = Exception.class)
 	public void sacar(String nomeContaDestino, String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
 		
