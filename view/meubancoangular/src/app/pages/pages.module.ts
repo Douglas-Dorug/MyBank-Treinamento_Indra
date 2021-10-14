@@ -10,6 +10,7 @@ import { SaqueComponent } from './caixa-eletronico/saque/saque.component';
 import { DepositoComponent } from './caixa-eletronico/deposito/deposito.component';
 import { TransferenciaComponent } from './caixa-eletronico/transferencia/transferencia.component';
 import { ExtratoComponent } from './caixa-eletronico/extrato/extrato.component';
+import { HomeComponent } from './homePage/home/home.component';
 
 
 
@@ -22,6 +23,7 @@ import { ExtratoComponent } from './caixa-eletronico/extrato/extrato.component';
     DepositoComponent,
     TransferenciaComponent,
     ExtratoComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

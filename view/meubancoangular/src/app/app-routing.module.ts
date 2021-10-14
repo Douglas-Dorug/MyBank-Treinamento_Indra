@@ -7,10 +7,11 @@ import { TransferenciaComponent } from './pages/caixa-eletronico/transferencia/t
 import { CadatroEdicaoClientesComponent } from './pages/clientes/cadatro-edicao-clientes/cadatro-edicao-clientes.component';
 import { ListagemClientesComponent } from './pages/clientes/listagem-clientes/listagem-clientes.component';
 import { ListagemContasComponent } from './pages/contas/listagem-contas/listagem-contas.component';
+import { HomeComponent } from './pages/homePage/home/home.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/clientes', pathMatch: 'full'
+    path: '', component: HomeComponent
   },
   {
     path: 'clientes', component: ListagemClientesComponent

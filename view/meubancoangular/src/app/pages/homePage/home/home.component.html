@@ -1,0 +1,36 @@
+<img class="img-fluid" src="assets/ArquivoLogoCorreto.gif" alt="Logo Site" style="width:100%;height:450px;">
+
+<p><br><br><br><br><br><br><br><br><br></p>
+
+<div class="container">
+  <div class="row">
+    <div class="feature col">
+      <div class="feature-icon bg-dark bg-gradient">
+        <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+      </div>
+      <h2>Clientes</h2>
+      <p>Operações voltadas ao gerenciamento e registro de clientes. Aqui podem ser encontradas funções como criar e deletar um cliente.</p>
+      <a [routerLink]="['clientes']" class="btn btn-dark btn-sm mx-1">Clientes</a>
+    </div>
+    <div class="feature col">
+      <div class="feature-icon bg-dark bg-gradient">
+        <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+      </div>
+      <h2>Contas</h2>
+      <p>Operações voltadas para o gerenciamento de contas bancarias. Aqui podem ser encontradas funções como deposito e saque diretamente das contas.</p>
+      <a [routerLink]="['contas']" class="btn btn-dark btn-sm mx-1">Contas</a>
+    </div>
+    <div class="feature col">
+      <div  class="feature-icon bg-dark bg-gradient">
+        <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+      </div>
+      <h2> Caixa Eletrônico</h2>
+      <p>Operações de caixa eletrônico voltadas para o atendimento utilizando agencia e conta.</p>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-dark" routerLink="/ATM/saque">Saque</button>
+        <button type="button" class="btn btn-dark" routerLink="/ATM/deposito">Depósito</button>
+        <button type="button" class="btn btn-dark" routerLink="/ATM/transferencia">Transferencia</button>
+      </div>
+    </div>
+  </div>
+</div>
