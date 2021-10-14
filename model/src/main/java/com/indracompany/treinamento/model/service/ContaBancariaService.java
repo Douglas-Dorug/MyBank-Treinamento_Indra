@@ -56,6 +56,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Transactional(rollbackOn = Exception.class)
 	public void depositar(String nomeContaRecebimento,String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
+		if (valor<=0) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_ACESSO_NEGADO_JIRA);
+		}
 		conta.setSaldo(conta.getSaldo() + valor);
 		super.salvar(conta);
 		if(tipoOperacao.equals("DEPOSITAR")) {
@@ -68,7 +71,9 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 	@Transactional(rollbackOn = Exception.class)
 	public void sacar(String nomeContaDestino, String agencia, String numeroConta, double valor, String tipoOperacao) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
-		
+		if (valor<=0) {
+			throw new AplicacaoException(ExceptionValidacoes.ERRO_ACESSO_NEGADO_JIRA);
+		}
 		if (conta.getSaldo()<valor) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INEXISTENTE);
 		}
