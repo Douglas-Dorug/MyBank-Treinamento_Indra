@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ITransferencia } from 'src/app/interfaces/transferencia';
-import { TransferenciaService } from 'src/app/services/transferencia.service';
+import { CaixaEletronicoService } from 'src/app/services/caixa-eletronico.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -21,7 +21,7 @@ export class TransferenciaComponent implements OnInit {
   });
 
   constructor(
-    private transferenciaService: TransferenciaService,
+    private caixaEletronicoService: CaixaEletronicoService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -35,7 +35,7 @@ export class TransferenciaComponent implements OnInit {
       didOpen: () => {
         Swal.showLoading()
     }});
-    this.transferenciaService.transferir(transferencia).subscribe(result => {
+    this.caixaEletronicoService.transferir(transferencia).subscribe(result => {
       Swal.fire('Sucesso!','Transferencia efetuada com successo!','success')
       this.router.navigate(['/contas']);
     }, error => {

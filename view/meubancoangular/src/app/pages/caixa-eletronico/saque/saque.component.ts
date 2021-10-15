@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IContas } from 'src/app/interfaces/contas';
 import { ISaqueDeposito } from 'src/app/interfaces/saque-deposito';
+import { CaixaEletronicoService } from 'src/app/services/caixa-eletronico.service';
 import { ContasService } from 'src/app/services/contas.service';
-import { SaqueService } from 'src/app/services/saque.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -30,8 +30,8 @@ export class SaqueComponent implements OnInit {
   }
 
   constructor(
+    private caixaEletronicoService: CaixaEletronicoService,
     private contaService: ContasService,
-    private saqueService: SaqueService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -52,7 +52,7 @@ export class SaqueComponent implements OnInit {
       didOpen: () => {
         Swal.showLoading()
     }});
-    this.saqueService.sacar(saque).subscribe(result => {
+    this.caixaEletronicoService.sacar(saque).subscribe(result => {
       Swal.fire('Sucesso!','Saque efetuado com successo!','success')
       this.router.navigate(['/contas']);
     }, error => {
