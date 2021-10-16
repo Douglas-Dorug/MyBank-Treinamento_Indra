@@ -6,19 +6,31 @@
       <form [formGroup]="formValue" (ngSubmit)="transferir()">
         <div class="mb-3">
           <label class="form-label">Agência da conta origem</label>
-          <input formValuetype="text" class="form-control" formControlName="agenciaOrigem">
+          <input formValuetype="text" class="form-control" placeholder="0000" formControlName="agenciaOrigem">
+          <div class="form-text">
+            Por favor digite os 4 números da agencia a ser debitada.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Número da Conta origem</label>
-          <input formValuetype="text" class="form-control" formControlName="numeroContaOrigem">
+          <input formValuetype="text" class="form-control" placeholder="000000" formControlName="numeroContaOrigem">
+          <div class="form-text">
+            Por favor digite os 6 números da conta a ser debitada.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Agência da conta destino</label>
-          <input formValuetype="text" class="form-control" formControlName="agenciaDestino">
+          <input formValuetype="text" class="form-control" placeholder="0000" formControlName="agenciaDestino">
+          <div class="form-text">
+            Por favor digite os 4 números da agencia a ser creditada.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Número da Conta destino</label>
-          <input formValuetype="text" class="form-control" formControlName="numeroContaDestino">
+          <input formValuetype="text" class="form-control" placeholder="000000" formControlName="numeroContaDestino">
+          <div class="form-text">
+            Por favor digite os 6 números da conta a ser creditada.
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Valor</label>
