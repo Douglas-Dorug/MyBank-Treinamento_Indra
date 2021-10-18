@@ -1,70 +1,66 @@
 **SOBRE O QUE É O PROJETO?**
 ========================================================================
 O objetivo do projeto é servir de base para o treinamento de "Formação Java/Angular para Jovens Profissionais", da Indra, unidade de João Pessoa, 
-ministrado por Eder Ferreira (efmendes@indracompany.com) e Arthur Leony (aldantas@indracompany.com)
-
+ministrado por Eder Ferreira (efmendes@indracompany.com) e Rafael Ferreira(rferreiraa@indracompany.com).
+O projeto consiste em uma API que simula um banco possibilitando ao usuário, realizar o CRUD de contas bancarias, fazer transações, consultar extratos e saldo, realizar o CRUD de clientes entre outros.
 
 **Conteúdo do Treinamento**
 
-- Git
-- Lombok 
+**Back-End:**
+- Java ![Badge](https://img.shields.io/badge/Java-v11-red)
+- Git 
+- Lombok  ![Badge](https://img.shields.io/badge/Lombok-vv1.18.20-red)
 - Criando um projeto Spring 
-- Maven 
-- Spring Boot 
+- Maven ![Badge](https://img.shields.io/badge/Maven-v3.8.1-red)
+- Spring Boot ![Badge](https://img.shields.io/badge/Spring-v2.3.1-green)
 - Api (Rest)
-- Swagger 
-- JPA (Hibernate) 
+- Swagger ![Badge](https://img.shields.io/badge/Swagger-v-green)
+- JPA (Hibernate)
 - Spring Data 
-- MySQL
+- MySQL 
 
+**Front-End:**
 
-**COMO CONSTRUIR O AMBIENTE**
+- Angular CLI ![Badge](https://img.shields.io/badge/ng-v11.2.14-blue)
+- Bootstrap ![Badge](https://img.shields.io/badge/Bootstrap-v5.1.1-blueviolet)
+- Node ![Badge](https://img.shields.io/badge/Node-v14.17.5-green)
+- FontAwesome
+- SweetAlert2 
+
+**Iniciando o Back-End**
 ========================================================================
-
-Baixar e instalar o Lombok na sua IDE em https://projectlombok.org/download.
-Acessar o diretório onde o lombok.jar foi baixado e executar no terminal: java -jar lombok.jar.
-Na janela de instalação, especificar o caminho onde se encontra sua IDE e concluir a instalação.
-
-Caso não consiga instalar através da interface, copiar o lombok.jar para o diretório do eclipse e editar o arquivo eclipse.ini e incluir a linha abaixo no final do arquivo:
-
--javaagent:/DIRETÓRIO_QUE_VOCE_COPIOU_O_LOMBOK.JAR/lombok.jar
+Para a criação e execução do progeto foi utilizada o Eclipse como IDE para desenvolvimento java onde foram instaladas 
+as dependencias necessárias para o funcionamento.
 
 **Back-End**
 
 	Primeiramente deve-se clonar o repositório no endereço:
 	
-	https://github.com/efmendes/treinamento_202109.git
+	https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra
 	
-	Após o projeto ser clonado, abra o terminal no diretório clonado **treinamento**
-	e utilize os seguintes comandos:
+	Após o projeto ser clonado, execute a aplicação que se encontra em 
+    ..controller\src\main\java\com\indracompany\treinamento/AppConfig.Java
+    Feito isto, o back-end estará funcionando
 
-	
-	mvn install
-	../treinamento-controller/target
-	java -jar treinamento.war
-	
-	
-**É de suma importância aguardar a execução dos comandos acima citados.**
+Para acessar a API, utilize o endereço: http://localhost:8080/treinamento no browser.
 
+
+**Iniciando o Front-End**
+========================================================================
+
+Para a criação e execução do projeto foi utilizado o Visual Studio Code como IDE para desenvolvimento Angular.
+
+**Front-End**
+
+	Primeiramente deve-se acessar a pasta do view/meubancoangular para ter acesso 
+    aos arquivos projeto em Angular.
+    Feito isto, basta utilizar o comando *ng serve* no terminal para iniciar
+    o projeto
+
+Para acessar a API, utilize o endereço: localhost:4200 no browser para acessar a homepage.
+
+
+Imagens Finais do projeto:
 ========================================================================
 
 
-Para acesso à sua API desenvolvida, utilize o endereço: http://localhost:8080/treinamento
-
-
-
-
-Voce pode desenvolver utilizando os recursos abaixo:
-========================================================================
-- Java 11
-- Maven
-
-Banco de dados
-========================================================================
-
-Como acessar o client do MySQL:
-
-	
-	JDBC URL: jdbc:mysql://localhost:3306/treinamentoindra
-    Usuário: root
-	Senha: vertrigo
