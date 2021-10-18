@@ -63,4 +63,26 @@ Para acessar a API, utilize o endereço: localhost:4200 no browser para acessar 
 Imagens Finais do projeto:
 ========================================================================
 
+## Layout HomePage
 
+ ![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-09.32.png)
+
+## Layout Listagem de Clientes
+
+ ![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-09.33_1.png)
+
+## Layout Pagina de Saque
+
+ ![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-09.34_1.png)
+
+## Layout Pagina de Transferencia
+
+ ![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-09.34.png)
+
+## Layout Pagina de Extrato
+
+![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-10.24.png)
+
+# Autor
+
+Douglas Luiz
