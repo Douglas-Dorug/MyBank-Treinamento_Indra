@@ -82,7 +82,3 @@ Imagens Finais do projeto:
 ## Layout Pagina de Extrato
 
 ![web](https://github.com/Douglas-Dorug/MyBank-Treinamento_Indra/blob/Douglas-Dorug/Assets/unknown_2021.10.18-10.24.png)
-
-# Autor
-
-Douglas Luiz
