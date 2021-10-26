@@ -54,6 +54,7 @@ Para a criação e execução do projeto foi utilizado o Visual Studio Code como
 
 	Primeiramente deve-se acessar a pasta do view/meubancoangular para ter acesso 
     aos arquivos projeto em Angular.
+    Utilizar o comando *npm install* para baixar as dependencias do projeto (node modules).
     Feito isto, basta utilizar o comando *ng serve* no terminal para iniciar
     o projeto
 
